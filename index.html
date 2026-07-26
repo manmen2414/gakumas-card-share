@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <script>
+    const PID = "MEJYSS27";
+    const GAKUMAS_URL = "idolmastergakuen-universallinks://com.bandainamcoent.idolmaster_gakuen?x=HKgI0BByjVBoNrB4ws8Z6cdGIitfl+QENkQdN3/zq88=";
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+  <title>学園アイドルマスター名刺共有</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("#pid-holder").innerText = PID;
+      const pid = document.querySelector("#pid");
+      pid.onclick = () => {
+        navigator.clipboard.writeText(PID);
+        const copy = document.querySelector("#pid-copy");
+        const success = document.querySelector("#pid-success");
+        setTimeout(() => {
+          copy.style.display = "block";
+          success.style.display = "none";
+          pid.style.color = "#fff";
+        }, 2000)
+        copy.style.display = "none";
+        success.style.display = "block";
+        pid.style.color = "#afa";
+      };
+      document.querySelector("#openGakumas").onclick = () => {
+        location.href = GAKUMAS_URL;
+      }
+    })
+  </script>
+
+  <style>
+    .card {
+      width: min(100%, 60dvh);
+      box-shadow: 0px 8px 20px #000;
+    }
+
+    body {
+      background-color: #cee3e9;
+      padding: 10px 5dvw;
+      font-family: "Noto Sans JP", Arial, Helvetica, sans-serif;
+      font-style: 500;
+    }
+
+    main {
+      text-align: center;
+      color: #544;
+      font-size: 120%;
+    }
+
+    main>div {
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin: 10px 0 10px 0;
+      font-size: 160%;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .action-card {
+      background-color: #444;
+      color: #fff;
+      width: fit-content;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px;
+      min-width: 200px;
+      border-radius: 10px;
+      transition: color 0.1s ease;
+
+      cursor: pointer;
+    }
+
+    #pid>svg {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+
+    #qr {
+      border: 2px solid #433;
+      border-radius: 16px;
+      padding: 4px;
+
+      width: 200px;
+    }
+
+    .warning {
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      background-color: #444;
+      color: #aaa;
+      margin: 0px;
+      width: 100dvw;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+  </style>
+
+</head>
+
+<body>
+  <main>
+    <img src="card.png" class="card">
+    <h1>学園アイドルマスター 名刺共有</h1>
+    <div class="id-wrapper">
+      <div>P-IDをコピー:</div>
+      <div id="pid" class="action-card">
+        <span id="pid-holder"></span>
+        <!-- From Google Icons -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"
+          id="pid-copy">
+          <path
+            d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"
+          id="pid-success" style="display: none;">
+          <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+        </svg>
+      </div>
+    </div>
+    <div class="phone-sys">
+      <div>スマホにインストールされている場合、こちらをタップすることで名刺のページに遷移します。</div>
+      <div class="action-card" id="openGakumas">
+        学マスを起動する
+      </div>
+      <div>スマホ版であれば「名刺→名刺コード→名刺読み取り」で名刺のQRコードを読み取ることが可能です。</div>
+      <img src="qr.png" id="qr">
+    </div>
+    <div class="download">
+      <div>もし学マスを始めてないのなら始めてみましょう。スマホ及びDMM GAMESでプレイ可能です。</div>
+      <div class="action-card">
+        <a href="https://gakuen.idolmaster-official.jp/" style="color:#fff;" target="_blank">公式ホームページ</a>
+      </div>
+    </div>
+
+    <div style="height: 20px;"></div>
+  </main>
+
+  <div class="warning">
+    注意: このページは非公式の自己紹介ページです。株式会社バンダイナムコエンターテインメント様は関与していません。
+  </div>
+</body>
+
+</html>
